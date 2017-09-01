@@ -1,0 +1,38 @@
+<div style="height: 50px"></div>
+<h1> Registration done</h1>
+
+<br>
+
+<div style="overflow-y: auto; height: 465px;float: left; border-radius: 10px; width: 890px;
+		border: 3px solid black;
+		margin: auto;">
+		
+<table style=" width: 100%; margin: 0px;
+		border: 0px;
+		margin: auto;">
+<tr>
+	<th colspan="7" style="text-align: left;">
+	<span>Name: </span><%= @user.firstName %>
+	<%= @user.lastName %><br>
+	<span>Phone: </span><%= @user.phoneNum %><br>
+	<span>Email: </span><%= @user.email %></th>
+</tr>
+<tr style="border-bottom: 3px solid black">
+		<td  style="text-align: center; border-bottom: 3px solid black; width: 90px">Tag Number</td>
+		<td  style="text-align: center; border-bottom: 3px solid black; width: 20px">Qty</td>
+		<td  style="text-align: center; border-bottom: 3px solid black; width: 350px">Status</td>
+		<td style="text-align: center; border-bottom: 3px solid black; width: 270px">Update Time</td>
+		<td  style="text-align: center; border-bottom: 3px solid black">Control</td>
+
+	</tr>
+</table>
+<%= render @user.items %>
+
+</div>
+<%= render 'products/quantity' %>
+<% if @user.products.count > 0 %>
+<div style="height:396px; overflow-y: auto; border-radius: 10px;
+		border: 3px solid black;">
+<%= render 'items/form' %>
+</div>
+<% end %>

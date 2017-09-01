@@ -1,0 +1,38 @@
+<style type="text/css">
+	
+	.back {
+		display: none;
+	}
+</style>
+<div style="float: left; margin-top: 20px"><%= link_to 'new costumer', new_user_path %></div>
+
+
+<div style="height: 50px"></div>
+<h1>Home</h1>
+<section>
+<div style="height:400px; width: 900px; overflow-y: auto; border-radius: 10px;
+		border: 3px solid black; margin: auto;">
+<table style="width: 900px; border:0px">
+<tr>
+<th style="border-bottom: 3px solid black">First Name</th>
+<th style="border-bottom: 3px solid black">Last Name</th>
+<th style="border-bottom: 3px solid black">Phone</th>
+<th colspan="2" style="border-bottom: 3px solid black">Options</th>
+</tr>
+<% @user.each do |u| %>
+<tr>
+<td style="text-align: center;"><%= u.firstName %></td>
+<td style="text-align: center;"><%= u.lastName %></td>
+<td style="text-align: center;"><%= u.phoneNum %></td>
+<td style="text-align: center;"><%= link_to 'show', user_path(u) %></td>
+<td style="text-align: center;"><%= link_to 'edit', edit_user_path(u) %></td>
+
+<!-- DELETE BUTTON for Clients
+<td><%= link_to 'Delete', user_path(u),
+		method: :delete,
+		data: { confirm: 'are you sure?' } %></td>-->
+</tr>
+<% end %>
+</table>
+</div>
+</section>

@@ -1,0 +1,24 @@
+
+
+<%= form_for ([@user, @user.products.build]) do |f| %>
+
+
+
+
+<table style="width: 400px; margin: 0px;">
+	<tr>
+	<% if @error %>
+	
+<td> enter a number from 1 to 9 </td>
+<% end %>
+		<td><%= f.label :'Quantity' %></td>
+
+		<td><%= f.text_field :quantity, maxlenth: 2 %></td>
+	</tr>
+	<tr>
+	<td>
+		<%= f.submit id: 'product_id' %>
+		</td>
+	</tr>
+</table>
+<% end %>

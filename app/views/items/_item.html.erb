@@ -1,0 +1,27 @@
+
+<%= form_tag user_item_path(@user, item), method: :put do  %>
+<!--<%= fields_for @user.items do |f|  %>-->
+<table style=" width: 100%; margin: 0px;
+		border: 0px;
+		margin: auto;">
+	<tr>
+		<td colspan="1" style="width: 90px; height: 50px"><%= item.tag %></td>
+		<td colspan="1" style="width: 20px; height: 50px; text-align: center;"><%= item.tagNum %></td>
+		<td style="width: 170px; ; text-align: left"><%= item.status %></td>
+		<td colspan="2" style="width: 200px; text-align: left"><%= select_tag("status", options_for_select([["received",'received'],["Waiting for pick up",'Waiting for pick up'],["Customer will pick it up",'Customer will pick it up']],params[:status].to_s),{:name => "status", include_blank: true} ) %></td>
+		<% if item.newDate %>
+		<td style="width: 50px"><%= item.newDate.strftime("%m/%d/%Y") %></td>
+		<% else %>
+		<td style="width: 50px"><%= item.created_at.strftime("%m/%d/%Y") %></td>
+		<% end %>
+		<td rowspan="2"><%= date_field_tag("newDate", DateTime.now, :order => [:month, :day, :year])  %></td>
+		<td><%= submit_tag "update", class: 'button', data: { confirm: 'You ara about to update, Do you want to continue?' }  %></td>
+		<td style="width: 50px"><%= link_to 'Delete', [item.user, item],  
+		method: :delete,
+		data: { confirm: 'are you sure?' } %></td>
+		
+		<% end %>
+		<% end %>
+
+	</tr>
+</table> 

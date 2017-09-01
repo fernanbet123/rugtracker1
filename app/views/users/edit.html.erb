@@ -1,0 +1,44 @@
+<script type="text/javascript">
+  var quantity = document.getElementById("quantity").value;
+  while (i <= quantity) do {
+    document.getElementById("quantity").value = quantity + 1;
+
+    i++
+  }
+
+
+</script>
+
+<div style="height: 50px"></div>
+<h1>Update</h1>
+
+<%= form_for @user do |f| %>
+
+    <table style="padding: 50px">
+    <tr>
+
+    <td><%= f.label :'Phone Number' %></td>
+    <td><%= f.text_field :phoneNum %></td>
+
+  </tr>
+  <tr>
+    <td><%= f.label :'First Name' %></td>
+    <td><%= f.text_field :firstName %></td>
+  </tr>
+   <tr>
+   <td><%= f.label :'Last Name' %></td>
+   <td><%= f.text_field :lastName %></td>
+  </tr>
+    <tr>
+   <td><%= f.label :'Email' %></td>
+   <td><%= f.text_field :email %></td>
+  </tr>
+
+  
+
+
+  <tr>
+    <td colspan="2" style="text-align: center;"><%= f.submit %></td>
+  </tr>
+  </table>
+<% end %>
